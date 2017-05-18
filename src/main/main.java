@@ -1,3 +1,11 @@
+/**
+ * GESTION DE PROYECTOS, AUDITORIA Y CALIDAD
+ *
+ * @author Andrés Nacimiento García
+ * @version 1.0
+ * @param description PRÁCTICA UTILIZANDO JENKINS
+ *
+ */
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileReader;
@@ -8,6 +16,9 @@ import opennlp.tools.tokenize.TokenizerME;
 import opennlp.tools.tokenize.TokenizerModel;
 import opennlp.tools.util.InvalidFormatException;
 
+/**
+ * Main class
+ */
 public class main {
 	
 	@SuppressWarnings("null")
@@ -21,7 +32,9 @@ public class main {
 		Tokenizer tokenizer = new TokenizerME(model);
         
         try{
-        	
+        	/**
+			 * Reading txt file
+			 */
             FileReader fr = new FileReader("example.txt");
             BufferedReader lector = new BufferedReader(fr);
             texto = lector.readLine();
@@ -31,7 +44,13 @@ public class main {
                 texto = lector.readLine(); 
             }
             lector.close ();
+			/**
+			 * Tokenizer
+			 */
     		String[] tokens = tokenizer.tokenize(txt);
+			/**
+			 * Output
+			 */
     		for( String token : tokens )
     		{
     			System.out.println( token );
@@ -40,6 +59,7 @@ public class main {
         }catch(Exception err){
             System.out.println("Error: " + err);
         }
+
 
 		System.out.println( "\n-----\ndone" );
 		
